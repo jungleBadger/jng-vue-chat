@@ -38,7 +38,7 @@
     let isProd;
 
     vueify.compiler.applyConfig({
-        "postcss": []
+        "postcss": [cssnext()]
     });
 
     process.env.NODE_ENV = argv.prod ? "production" : "development";
@@ -99,18 +99,16 @@
         }
         return gulp.src([path.join(modulePath, "src/css/*.css"), path.join(modulePath, "src/css/*.scss")])
             .pipe(plumber())
-            .pipe(postcss(
-                isProd ?
-                    cssUglifier :
-                    cssnext({})
-                )
-            )
+            .pipe(postcss([
+                cssnext({})
+            ]))
             .pipe(cond(!isProd, sourcemaps.init({"loadMaps": true})))
             .pipe(sass().on('error', sass.logError))
             .pipe(cond(isProd, postcss(cssUglifier)))
             .pipe(cond(!isProd, sourcemaps.write("./")))
             .pipe(gulp.dest(path.join(modulePath, "/dist/css/")))
     });
+
 
     gulp.task("watch-css", function () {
         return gulp.watch([path.join(modulePath, "src/css/*.css"), path.join(modulePath, "src/css/*.scss")], ['css']);

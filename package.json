@@ -76,7 +76,18 @@
     "watchify": "^3.9.0",
     "yargs": "^10.1.1"
   },
-  "dependencies": {
-    "izitoast": "^1.2.0"
-  }
+  "browser": {
+    "vue": "vue/dist/vue.runtime.common.js"
+  },
+  "nyc": {
+    "reporter": [
+      "lcov",
+      "text-summary"
+    ]
+  },
+  "browserslist": [
+    "last 2 ff versions",
+    "last 2 edge versions",
+    "last 2 safari versions"
+  ]
 }

@@ -1,1 +1,1 @@
-{"version":3,"names":[],"mappings":"","sources":["main.scss"],"sourcesContent":[""],"file":"main.css"}
+{"version":3,"file":"main.css","sources":["main.scss"],"sourcesContent":["body {\r\n  filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns=\"http://www.w3.org/2000/svg\"><filter id=\"filter\"><feGaussianBlur stdDeviation=\"1\" /></filter></svg>#filter');\r\n  filter: blur(1px);\r\n}"],"names":[],"mappings":"AAAA,AAAA,IAAI,CAAC;EACH,MAAM,EAAE,6JAA6J;EACrK,MAAM,EAAE,SAAS,GAClB"}
